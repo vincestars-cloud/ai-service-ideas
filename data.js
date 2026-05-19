@@ -2056,6 +2056,97 @@ var BATCH_DATA = [
   offerDescription: "The meta-framework. Build an agency that sells any combination of the ideas on this list."
 }
 
+// ============================================
+// BATCH 9: MEDICAL BILLING, WHITE-LABEL, MORE
+// ============================================
+
+,{
+  id: "ai-medical-billing-coding",
+  title: "AI Medical Billing & Coding Service",
+  creator: "Healthcare tech creators",
+  videoUrl: "https://www.youtube.com/watch?v=FwOw-VDVZtA",
+  videoViews: "Combined 200K+",
+  category: "AI Niche Service",
+  summary: "AI reads clinical notes and auto-assigns medical billing codes. Reduces coding errors, speeds claims processing, and increases revenue for practices. 70%+ of health systems plan to expand AI in revenue cycle by 2026. The market: $7.7B -> $35.8B by 2029. Sell to medical practices for $2K-$5K/mo. Complex but extremely high-value.",
+  overallScore: 7.2,
+  easeOfDelivery: 4,
+  marketDemand: 8,
+  aiAutomation: 7,
+  profitability: 9,
+  pricePoint: "$2K-$5K/mo",
+  priceRange: "high",
+  priceNumeric: 3500,
+  speedToFirst5k: "months",
+  videosSources: 3,
+  businessAnalysis: "Medical coding is a $15B+ industry. AI can: read clinical notes, suggest ICD-10/CPT codes, verify against payer requirements, flag potential denials, and auto-submit clean claims. Currently 63% of healthcare orgs use some AI for revenue cycle. Key challenge: requires deep healthcare domain expertise and compliance awareness (HIPAA). Not a beginner service but extremely lucrative for those with healthcare background.",
+  toolsNeeded: ["AI medical coding platform (CodaMetrix, Sully)", "EHR integration", "Claims management system", "Compliance framework", "HIPAA-compliant infrastructure"],
+  automationPlan: "Provider sees patient -> clinical notes entered in EHR -> AI reads notes -> suggests appropriate billing codes -> flags missing documentation -> submits clean claim to payer -> tracks claim status -> auto-appeals denials with supporting documentation. The AI handles the tedious matching of clinical language to code sets, reducing errors from 10-15% to 2-3%.",
+  unitEconomics: "Monthly: $2K-$5K per practice. Practice revenue impact: 5-15% increase in collections from fewer denials and coding errors. For a practice collecting $500K/year, 10% improvement = $50K more revenue. Your $3K/mo fee pays for itself 1.4x monthly. But: long sales cycles, compliance complexity, requires healthcare expertise.",
+  audienceAcquisition: "Medical practice management conferences, healthcare IT events. Partner with EHR vendors and medical billing companies. Target practices with high denial rates (>10%). Very relationship-driven sale. Need healthcare background or domain expert on team.",
+  whyValuable: "Medical billing errors cost the US healthcare system $935M+ annually. The average claim denial rate is 10-15%. AI reduces it to 2-3%. For practices, every denied claim is revenue delayed or lost. AI coding is faster, more accurate, and catches documentation gaps that humans miss.",
+  tags: ["healthcare", "medical-billing", "coding", "revenue-cycle", "enterprise", "compliance", "high-value"],
+  transcriptPreview: "70% of health systems plan to expand AI-driven automation in revenue cycle by 2026... AI medical coders use NLP and ML to read clinical notes and auto-assign codes...",
+  offerDescription: "Extremely high-value but requires healthcare domain expertise. Not for beginners."
+},
+
+{
+  id: "ai-whitelabel-chatbot-reseller",
+  title: "White-Label AI Chatbot Reselling (Stammer, GHL)",
+  creator: "Agency reseller creators",
+  videoUrl: "https://www.youtube.com/watch?v=Y-l_-CAmJ2c",
+  videoViews: "Combined 400K+",
+  category: "AI White Label SaaS",
+  summary: "Resell AI chatbots under your brand using Stammer.ai or GoHighLevel. You configure once, deploy to unlimited clients. Stammer built specifically for agency white-labeling. GHL includes chatbot + full CRM. Charge $300-$1K/mo per client. Part-time: $500-$2K/mo from 5-10 clients. Full-time: $4K-$20K/mo from 20-50 clients.",
+  overallScore: 8.2,
+  easeOfDelivery: 8,
+  marketDemand: 8,
+  aiAutomation: 8,
+  profitability: 8,
+  pricePoint: "$300-$1K/mo per client",
+  priceRange: "mid",
+  priceNumeric: 500,
+  speedToFirst5k: "weeks",
+  videosSources: 5,
+  businessAnalysis: "The reseller model: Use Stammer.ai ($49-$497/mo) or GoHighLevel ($297-$497/mo) to create white-labeled AI chatbots. Your clients see YOUR branding. You handle onboarding and support. Platform handles everything else. Stammer specializes in AI chatbots + voice agents for agencies. GHL includes full CRM + marketing suite + AI chatbot. The play: pick a niche, create niche-specific chatbot templates, sell as your product. Revenue: 5-10 clients at $500/mo = $2.5K-$5K/mo. 20-50 clients = $10K-$25K/mo. White-label software market hitting $99B by 2026.",
+  toolsNeeded: ["Stammer.ai ($49-$497/mo) or GoHighLevel ($297-$497/mo)", "Custom domain + branding", "Onboarding templates", "Client support system", "Knowledge base per client"],
+  automationPlan: "Choose platform -> brand it -> create niche-specific chatbot templates (dental chatbot, HVAC chatbot, salon chatbot) -> onboard new client in 1-2 hours (scrape their website, train chatbot on their data, embed widget) -> monthly: monitor conversations, improve responses, add FAQ based on common questions. The platform handles hosting, AI, scaling. You handle relationships.",
+  unitEconomics: "Platform: $49-$497/mo (Stammer) or $297/mo (GHL). Per client: $300-$1K/mo. Break-even: 1-3 clients. 10 clients at $500/mo = $5K/mo. 30 clients at $500/mo = $15K/mo. Margin: 60-80% at scale. Stammer at $49/mo: break even with 1 client at $300/mo. The math is extremely favorable once you have 5+ clients.",
+  audienceAcquisition: "Same as chatbot offer: audit websites without chatbots. DM with demo. Cold email. Google Maps prospecting. The white-label angle means clients see YOUR platform, building brand equity. Cross-sell to existing website or marketing clients. Agency-to-agency: sell the platform to OTHER agencies who want to offer chatbots to their clients.",
+  whyValuable: "Businesses need chatbots but don't want to figure out the technology. You provide a branded, easy-to-use solution configured for their specific needs. The white-label creates the perception of proprietary technology. Monthly recurring revenue with minimal ongoing effort after setup.",
+  tags: ["white-label", "chatbot", "reseller", "stammer", "ghl", "recurring", "low-effort", "scalable"],
+  transcriptPreview: "Stammer AI is designed specifically for agency resellers... Part-time resellers with 5-10 clients at $500/month generate $500-$2,000/month in recurring revenue...",
+  offerDescription: "The easiest path to recurring AI revenue. Platform does the heavy lifting, you do the selling."
+},
+
+{
+  id: "ai-podcast-to-blog",
+  title: "AI Podcast-to-Blog Article Conversion Service",
+  creator: "Content repurposing creators",
+  videoUrl: "https://www.youtube.com/watch?v=5OhD5scoDPk",
+  videoViews: "Combined 200K+",
+  category: "AI Content Agency",
+  summary: "Turn podcast episodes into SEO-optimized blog articles in 5 minutes. AI transcribes, restructures for reading, adds headers/subheads, optimizes for target keywords, and generates meta descriptions. Podcasters get SEO traffic from content they already created. Charge $200-$500 per article or $1K-$2K/mo for weekly conversion.",
+  overallScore: 7.9,
+  easeOfDelivery: 9,
+  marketDemand: 8,
+  aiAutomation: 9,
+  profitability: 7,
+  pricePoint: "$200-$500/article or $1-2K/mo",
+  priceRange: "mid",
+  priceNumeric: 1500,
+  speedToFirst5k: "weeks",
+  videosSources: 4,
+  businessAnalysis: "Podcasts are invisible to search engines. The audio contains incredible content but Google can't read it. Converting podcast episodes to blog articles unlocks: 1) SEO traffic (people searching for the topics discussed), 2) Backlink opportunities, 3) Social sharing, 4) Email content, 5) Lead magnets from key insights. AI handles: transcription -> restructuring (spoken word ≠ written word) -> SEO optimization -> formatting. Human reviews for accuracy and brand voice. This is the #1 underutilized podcast growth strategy.",
+  toolsNeeded: ["Whisper/Supadata (transcription)", "Claude/GPT (article restructuring + SEO)", "WordPress/Ghost API (publishing)", "Ahrefs/SEMrush (keyword targeting)", "Featured image generation"],
+  automationPlan: "Episode uploaded -> Whisper transcribes -> AI restructures transcript into article format (removes filler, adds intro/conclusion, creates subheadings, adds key takeaways, formats quotes) -> targets SEO keywords relevant to the topic -> generates meta description, title tag, featured image alt text -> publishes to client's blog -> adds internal links to other episodes/articles. Weekly: 1 episode = 1 blog article, all automated.",
+  unitEconomics: "Per article: $200-$500 (30-45 min including review). Monthly (4 articles): $800-$2K. Cost: $5-10/mo (AI APIs). A well-optimized blog article can drive 100-1,000+ monthly organic visitors. At $50 customer acquisition cost, 10 leads/month from articles = $500/mo value to client. Your $1.5K/mo fee generates 3x+ ROI in organic leads over time.",
+  audienceAcquisition: "Target: business podcasters (coaches, consultants, SaaS, agencies) on LinkedIn. Pitch: 'Your last podcast episode had incredible insights about [topic]. But nobody searching for that topic will ever find it. I can turn it into an SEO-optimized article that drives traffic for years.' Show: competitor podcast with blog vs theirs without.",
+  whyValuable: "Podcast episodes have a shelf life of days (the episode chart, then fade). Blog articles compound over years (SEO traffic grows). Converting episodes to articles creates an evergreen content asset from content that already exists. The client does zero extra work - they already recorded the episode.",
+  tags: ["podcast", "blog", "seo", "content-repurposing", "evergreen", "organic-traffic", "recurring"],
+  transcriptPreview: "How to repurpose podcast into optimized blog article in less than 5 minutes... How AI podcast-to-blog solutions can transform your content creation...",
+  offerDescription: "Convert existing content into evergreen SEO assets. Clients already have the content - they just need it in a different format."
+}
+
 ];
 
 // Export for use
