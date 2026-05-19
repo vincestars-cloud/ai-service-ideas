@@ -130,6 +130,31 @@ header p { color: var(--text-muted); font-size: 1.1rem; max-width: 700px; margin
 .badge-ugc { background: #e84393 20; color: #fd79a8; }
 .badge-misc { background: #636e7220; color: #b2bec3; }
 
+.proof-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+.proof-verified { background: #00b89430; color: #00b894; border: 1px solid #00b89450; }
+.proof-partially-verified { background: #fdcb6e30; color: #fdcb6e; border: 1px solid #fdcb6e50; }
+.proof-unverified { background: #e1705530; color: #e17055; border: 1px solid #e1705550; }
+.proof-na { background: #636e7230; color: #b2bec3; border: 1px solid #636e7250; }
+.proof-note {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  background: var(--bg);
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-top: 8px;
+  border-left: 3px solid var(--border);
+  font-style: italic;
+}
 .idea-card h3 { font-size: 1.15rem; color: var(--text-bright); margin-bottom: 8px; font-weight: 700; }
 .idea-card .creator { color: var(--accent-light); font-size: 0.85rem; margin-bottom: 10px; }
 .idea-card .summary { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px; line-height: 1.5; }
@@ -355,6 +380,14 @@ header p { color: var(--text-muted); font-size: 1.1rem; max-width: 700px; margin
       </select>
     </div>
     <div class="filter-group">
+      <label>Proof Level</label>
+      <select id="filter-proof">
+        <option value="all">Any Proof</option>
+        <option value="verified">Verified Only</option>
+        <option value="partially-verified">Partially Verified+</option>
+      </select>
+    </div>
+    <div class="filter-group">
       <label>Search</label>
       <input type="text" id="search-input" placeholder="Search ideas..." style="width:200px;">
     </div>
@@ -408,7 +441,13 @@ function renderCard(idea, idx) {
   const speedClass = getSpeedClass(idea.speedToFirst5k);
   const badgeClass = getBadgeClass(idea.category);
 
+  const proofClass = {'verified':'proof-verified','partially-verified':'proof-partially-verified','unverified':'proof-unverified','n/a':'proof-na'}[idea.proofLevel] || 'proof-na';
+  const proofLabel = {'verified':'Verified','partially-verified':'Partially Verified','unverified':'Unverified','n/a':'N/A'}[idea.proofLevel] || 'Unknown';
+
   let expandedHTML = '';
+  if (idea.proofNote) {
+    expandedHTML += `<h4>Proof & Verification</h4><div class="proof-note">${idea.proofNote}</div>`;
+  }
   if (idea.businessAnalysis) {
     expandedHTML += `<h4>Business Model</h4><p>${idea.businessAnalysis}</p>`;
   }
@@ -447,7 +486,7 @@ function renderCard(idea, idx) {
   <div class="idea-card" data-idx="${idx}" data-category="${idea.category}" data-score="${idea.overallScore}" data-speed="${idea.speedToFirst5k}" data-price="${idea.priceRange}" onclick="toggleCard(this)">
     <span class="category-badge ${badgeClass}">${idea.category}</span>
     <span class="speed-indicator ${speedClass}" style="float:right;">${idea.speedToFirst5k} to $5K</span>
-    <h3>${idea.title}</h3>
+    <h3>${idea.title} <span class="proof-badge ${proofClass}">${proofLabel}</span></h3>
     <div class="creator">${idea.creator} ${idea.videoViews ? '&bull; ' + idea.videoViews + ' views' : ''}</div>
     <div class="summary">${idea.summary}</div>
     <div class="metrics-row">
@@ -485,6 +524,9 @@ function renderAll() {
     if (idea.overallScore < scoreFilter) return false;
     if (priceFilter !== 'all' && idea.priceRange !== priceFilter) return false;
     if (speedFilter !== 'all' && !idea.speedToFirst5k.toLowerCase().includes(speedFilter)) return false;
+    const proofFilter = document.getElementById('filter-proof').value;
+    if (proofFilter === 'verified' && idea.proofLevel !== 'verified') return false;
+    if (proofFilter === 'partially-verified' && idea.proofLevel === 'unverified') return false;
     if (search && !JSON.stringify(idea).toLowerCase().includes(search)) return false;
     return true;
   });
@@ -519,7 +561,7 @@ function renderAll() {
 }
 
 // Event listeners
-['filter-category','filter-score','filter-price','filter-speed','sort-by'].forEach(id => {
+['filter-category','filter-score','filter-price','filter-speed','sort-by','filter-proof'].forEach(id => {
   document.getElementById(id).addEventListener('change', renderAll);
 });
 document.getElementById('search-input').addEventListener('input', renderAll);
