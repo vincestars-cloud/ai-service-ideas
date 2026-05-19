@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Service Business Ideas - Research & Analysis</title>
+<style>
+:root {
+  --bg: #0a0a0f;
+  --card: #13131a;
+  --card-hover: #1a1a25;
+  --border: #2a2a3a;
+  --accent: #6c5ce7;
+  --accent-light: #a29bfe;
+  --green: #00b894;
+  --yellow: #fdcb6e;
+  --red: #e17055;
+  --orange: #f39c12;
+  --text: #e0e0e0;
+  --text-muted: #8a8a9a;
+  --text-bright: #ffffff;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+.container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+header {
+  text-align: center;
+  padding: 40px 20px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 30px;
+}
+header h1 {
+  font-size: 2.4rem;
+  color: var(--text-bright);
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+header p { color: var(--text-muted); font-size: 1.1rem; max-width: 700px; margin: 0 auto; }
+.stats-bar {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 25px 0;
+  flex-wrap: wrap;
+}
+.stat-box {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 15px 25px;
+  text-align: center;
+  min-width: 150px;
+}
+.stat-box .num {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent-light);
+}
+.stat-box .label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+
+/* Filters */
+.filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 15px 20px;
+  background: var(--card);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+.filters label { color: var(--text-muted); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.filters select, .filters input {
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  outline: none;
+}
+.filters select:focus, .filters input:focus { border-color: var(--accent); }
+.filter-group { display: flex; flex-direction: column; gap: 4px; }
+
+/* Cards */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  gap: 20px;
+}
+.idea-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.2s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.idea-card:hover { background: var(--card-hover); border-color: var(--accent); transform: translateY(-2px); }
+.idea-card .category-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+.badge-website { background: #6c5ce720; color: #a29bfe; }
+.badge-voice { background: #00b89420; color: #55efc4; }
+.badge-chatbot { background: #0984e320; color: #74b9ff; }
+.badge-content { background: #e1705520; color: #fab1a0; }
+.badge-lead-gen { background: #fdcb6e20; color: #ffeaa7; }
+.badge-seo { background: #00cec920; color: #81ecec; }
+.badge-ads { background: #fd79a820; color: #f8a5c2; }
+.badge-automation { background: #a29bfe20; color: #dfe6e9; }
+.badge-reputation { background: #55efc420; color: #00b894; }
+.badge-email { background: #ff793f20; color: #ff793f; }
+.badge-saas { background: #e056f020; color: #e056f0; }
+.badge-niche { background: #f39c1220; color: #f1c40f; }
+.badge-ugc { background: #e84393 20; color: #fd79a8; }
+.badge-misc { background: #636e7220; color: #b2bec3; }
+
+.idea-card h3 { font-size: 1.15rem; color: var(--text-bright); margin-bottom: 8px; font-weight: 700; }
+.idea-card .creator { color: var(--accent-light); font-size: 0.85rem; margin-bottom: 10px; }
+.idea-card .summary { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px; line-height: 1.5; }
+
+.metrics-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.metric {
+  text-align: center;
+  padding: 8px;
+  background: var(--bg);
+  border-radius: 8px;
+}
+.metric .value { font-size: 1.1rem; font-weight: 700; }
+.metric .mlabel { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+.score-high { color: var(--green); }
+.score-mid { color: var(--yellow); }
+.score-low { color: var(--red); }
+
+.tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+.tag {
+  font-size: 0.7rem;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--bg);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+/* Expanded card */
+.idea-card .expanded-content {
+  display: none;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+.idea-card.open .expanded-content { display: block; }
+.expanded-content h4 { color: var(--accent-light); font-size: 0.95rem; margin: 12px 0 6px; }
+.expanded-content p, .expanded-content li { font-size: 0.88rem; color: var(--text-muted); }
+.expanded-content ul { padding-left: 18px; }
+.expanded-content li { margin-bottom: 4px; }
+.transcript-preview {
+  background: var(--bg);
+  padding: 12px;
+  border-radius: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+  white-space: pre-wrap;
+  border: 1px solid var(--border);
+}
+.video-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent-light);
+  text-decoration: none;
+  font-size: 0.85rem;
+  margin-top: 10px;
+  padding: 6px 12px;
+  background: var(--accent)15;
+  border-radius: 6px;
+}
+.video-link:hover { background: var(--accent)30; }
+
+.offer-screenshot {
+  margin-top: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  max-width: 100%;
+}
+.offer-description {
+  background: var(--bg);
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  border-left: 3px solid var(--accent);
+}
+
+/* Speed indicator */
+.speed-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.speed-fast { background: #00b89420; color: #00b894; }
+.speed-medium { background: #fdcb6e20; color: #fdcb6e; }
+.speed-slow { background: #e1705520; color: #e17055; }
+
+/* Loading */
+.loading-state {
+  text-align: center;
+  padding: 60px;
+  color: var(--text-muted);
+}
+.loading-state .spinner {
+  width: 40px; height: 40px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 15px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Progress bar */
+.progress-section {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 25px;
+}
+.progress-bar-container {
+  height: 8px;
+  background: var(--bg);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--green));
+  border-radius: 4px;
+  transition: width 0.5s;
+}
+.progress-text { font-size: 0.85rem; color: var(--text-muted); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cards-grid { grid-template-columns: 1fr; }
+  .filters { flex-direction: column; }
+  .stats-bar { flex-direction: column; align-items: center; }
+  header h1 { font-size: 1.6rem; }
+  .metrics-row { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* No results */
+.no-results {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-muted);
+}
+.no-results h3 { color: var(--text); margin-bottom: 10px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>AI Service Business Ideas</h1>
+    <p>Deep research into 250+ YouTube videos analyzing AI-automated business services you can build and sell for $500-$5,000 per client. Each idea scored, ranked, and analyzed for profitability.</p>
+    <div class="stats-bar">
+      <div class="stat-box"><div class="num" id="total-videos">0</div><div class="label">Videos Analyzed</div></div>
+      <div class="stat-box"><div class="num" id="total-ideas">0</div><div class="label">Business Ideas</div></div>
+      <div class="stat-box"><div class="num" id="total-categories">0</div><div class="label">Categories</div></div>
+      <div class="stat-box"><div class="num" id="avg-score">0</div><div class="label">Avg Score</div></div>
+    </div>
+  </header>
+
+  <div class="progress-section">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <span style="font-weight:700;color:var(--text-bright);">Research Progress</span>
+      <span class="progress-text" id="progress-text">Loading...</span>
+    </div>
+    <div class="progress-bar-container">
+      <div class="progress-bar-fill" id="progress-bar" style="width:0%"></div>
+    </div>
+  </div>
+
+  <div class="filters">
+    <div class="filter-group">
+      <label>Category</label>
+      <select id="filter-category">
+        <option value="all">All Categories</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label>Min Score</label>
+      <select id="filter-score">
+        <option value="0">Any Score</option>
+        <option value="7">7+</option>
+        <option value="8">8+</option>
+        <option value="9">9+</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label>Price Range</label>
+      <select id="filter-price">
+        <option value="all">Any Price</option>
+        <option value="low">$100-$500</option>
+        <option value="mid">$500-$2,000</option>
+        <option value="high">$2,000-$5,000</option>
+        <option value="premium">$5,000+</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label>Speed to $5K</label>
+      <select id="filter-speed">
+        <option value="all">Any Speed</option>
+        <option value="hours">Hours</option>
+        <option value="days">Days</option>
+        <option value="weeks">Weeks</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label>Sort By</label>
+      <select id="sort-by">
+        <option value="score">Overall Score</option>
+        <option value="speed">Speed to $5K</option>
+        <option value="price">Price (High to Low)</option>
+        <option value="ease">Ease of Delivery</option>
+        <option value="demand">Market Demand</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label>Search</label>
+      <input type="text" id="search-input" placeholder="Search ideas..." style="width:200px;">
+    </div>
+  </div>
+
+  <div class="cards-grid" id="cards-container">
+    <div class="loading-state">
+      <div class="spinner"></div>
+      <p>Loading research data...</p>
+    </div>
+  </div>
+</div>
+
+<script>
+// Data store - ideas will be added in batches
+let IDEAS = [];
+
+function getScoreClass(score) {
+  if (score >= 8) return 'score-high';
+  if (score >= 6) return 'score-mid';
+  return 'score-low';
+}
+
+function getSpeedClass(speed) {
+  if (['minutes','hours'].includes(speed)) return 'speed-fast';
+  if (['days','1-2 days'].includes(speed)) return 'speed-medium';
+  return 'speed-slow';
+}
+
+function getBadgeClass(cat) {
+  const map = {
+    'AI Website Builder': 'badge-website',
+    'AI Voice Agent': 'badge-voice',
+    'AI Chatbot': 'badge-chatbot',
+    'AI Content Agency': 'badge-content',
+    'AI Lead Generation': 'badge-lead-gen',
+    'AI SEO Service': 'badge-seo',
+    'AI Ad Creative': 'badge-ads',
+    'AI Workflow Automation': 'badge-automation',
+    'AI Reputation Management': 'badge-reputation',
+    'AI Email Marketing': 'badge-email',
+    'AI White Label SaaS': 'badge-saas',
+    'AI Niche Service': 'badge-niche',
+    'AI UGC/Video': 'badge-ugc',
+  };
+  return map[cat] || 'badge-misc';
+}
+
+function renderCard(idea, idx) {
+  const scoreClass = getScoreClass(idea.overallScore);
+  const speedClass = getSpeedClass(idea.speedToFirst5k);
+  const badgeClass = getBadgeClass(idea.category);
+
+  let expandedHTML = '';
+  if (idea.businessAnalysis) {
+    expandedHTML += `<h4>Business Model</h4><p>${idea.businessAnalysis}</p>`;
+  }
+  if (idea.toolsNeeded && idea.toolsNeeded.length) {
+    expandedHTML += `<h4>Tools & Stack Needed</h4><ul>${idea.toolsNeeded.map(t => `<li>${t}</li>`).join('')}</ul>`;
+  }
+  if (idea.automationPlan) {
+    expandedHTML += `<h4>Automation Plan</h4><p>${idea.automationPlan}</p>`;
+  }
+  if (idea.unitEconomics) {
+    expandedHTML += `<h4>Unit Economics</h4><p>${idea.unitEconomics}</p>`;
+  }
+  if (idea.audienceAcquisition) {
+    expandedHTML += `<h4>How to Find Clients</h4><p>${idea.audienceAcquisition}</p>`;
+  }
+  if (idea.whyValuable) {
+    expandedHTML += `<h4>Why Businesses Pay</h4><p>${idea.whyValuable}</p>`;
+  }
+  if (idea.offerDescription) {
+    expandedHTML += `<h4>Creator's Offer</h4><div class="offer-description">${idea.offerDescription}</div>`;
+  }
+  if (idea.offerScreenshot) {
+    expandedHTML += `<img src="${idea.offerScreenshot}" class="offer-screenshot" alt="Offer screenshot">`;
+  }
+  if (idea.transcriptPreview) {
+    expandedHTML += `<h4>Transcript Excerpt</h4><div class="transcript-preview">${idea.transcriptPreview}</div>`;
+  }
+  if (idea.videoUrl) {
+    expandedHTML += `<a href="${idea.videoUrl}" target="_blank" class="video-link">Watch Video</a>`;
+  }
+  if (idea.creatorSite) {
+    expandedHTML += ` <a href="${idea.creatorSite}" target="_blank" class="video-link">Creator's Site</a>`;
+  }
+
+  return `
+  <div class="idea-card" data-idx="${idx}" data-category="${idea.category}" data-score="${idea.overallScore}" data-speed="${idea.speedToFirst5k}" data-price="${idea.priceRange}" onclick="toggleCard(this)">
+    <span class="category-badge ${badgeClass}">${idea.category}</span>
+    <span class="speed-indicator ${speedClass}" style="float:right;">${idea.speedToFirst5k} to $5K</span>
+    <h3>${idea.title}</h3>
+    <div class="creator">${idea.creator} ${idea.videoViews ? '&bull; ' + idea.videoViews + ' views' : ''}</div>
+    <div class="summary">${idea.summary}</div>
+    <div class="metrics-row">
+      <div class="metric"><div class="value ${scoreClass}">${idea.overallScore}/10</div><div class="mlabel">Score</div></div>
+      <div class="metric"><div class="value">${idea.pricePoint}</div><div class="mlabel">Price Point</div></div>
+      <div class="metric"><div class="value ${getScoreClass(idea.easeOfDelivery)}">${idea.easeOfDelivery}/10</div><div class="mlabel">Ease</div></div>
+    </div>
+    <div class="metrics-row">
+      <div class="metric"><div class="value ${getScoreClass(idea.marketDemand)}">${idea.marketDemand}/10</div><div class="mlabel">Demand</div></div>
+      <div class="metric"><div class="value ${getScoreClass(idea.aiAutomation)}">${idea.aiAutomation}/10</div><div class="mlabel">AI %</div></div>
+      <div class="metric"><div class="value ${getScoreClass(idea.profitability)}">${idea.profitability}/10</div><div class="mlabel">Profit</div></div>
+    </div>
+    <div class="tags">
+      ${(idea.tags||[]).map(t => `<span class="tag">${t}</span>`).join('')}
+    </div>
+    <div class="expanded-content">${expandedHTML}</div>
+  </div>`;
+}
+
+function toggleCard(el) {
+  el.classList.toggle('open');
+}
+
+function renderAll() {
+  const container = document.getElementById('cards-container');
+  const catFilter = document.getElementById('filter-category').value;
+  const scoreFilter = parseInt(document.getElementById('filter-score').value);
+  const priceFilter = document.getElementById('filter-price').value;
+  const speedFilter = document.getElementById('filter-speed').value;
+  const sortBy = document.getElementById('sort-by').value;
+  const search = document.getElementById('search-input').value.toLowerCase();
+
+  let filtered = IDEAS.filter(idea => {
+    if (catFilter !== 'all' && idea.category !== catFilter) return false;
+    if (idea.overallScore < scoreFilter) return false;
+    if (priceFilter !== 'all' && idea.priceRange !== priceFilter) return false;
+    if (speedFilter !== 'all' && !idea.speedToFirst5k.toLowerCase().includes(speedFilter)) return false;
+    if (search && !JSON.stringify(idea).toLowerCase().includes(search)) return false;
+    return true;
+  });
+
+  const sortFn = {
+    score: (a, b) => b.overallScore - a.overallScore,
+    speed: (a, b) => { const order = {'minutes':0,'hours':1,'days':2,'1-2 days':2,'weeks':3,'months':4}; return (order[a.speedToFirst5k]||5) - (order[b.speedToFirst5k]||5); },
+    price: (a, b) => (b.priceNumeric||0) - (a.priceNumeric||0),
+    ease: (a, b) => b.easeOfDelivery - a.easeOfDelivery,
+    demand: (a, b) => b.marketDemand - a.marketDemand,
+  };
+  filtered.sort(sortFn[sortBy] || sortFn.score);
+
+  if (filtered.length === 0) {
+    container.innerHTML = '<div class="no-results"><h3>No matching ideas</h3><p>Try adjusting your filters</p></div>';
+  } else {
+    container.innerHTML = filtered.map((idea, i) => renderCard(idea, i)).join('');
+  }
+
+  // Update stats
+  const categories = [...new Set(IDEAS.map(i => i.category))];
+  document.getElementById('total-videos').textContent = IDEAS.reduce((acc, i) => acc + (i.videosSources || 1), 0);
+  document.getElementById('total-ideas').textContent = IDEAS.length;
+  document.getElementById('total-categories').textContent = categories.length;
+  document.getElementById('avg-score').textContent = IDEAS.length ? (IDEAS.reduce((a,b) => a + b.overallScore, 0) / IDEAS.length).toFixed(1) : '0';
+
+  // Populate category filter
+  const catSelect = document.getElementById('filter-category');
+  const currentCat = catSelect.value;
+  catSelect.innerHTML = '<option value="all">All Categories</option>' + categories.map(c => `<option value="${c}">${c}</option>`).join('');
+  catSelect.value = currentCat;
+}
+
+// Event listeners
+['filter-category','filter-score','filter-price','filter-speed','sort-by'].forEach(id => {
+  document.getElementById(id).addEventListener('change', renderAll);
+});
+document.getElementById('search-input').addEventListener('input', renderAll);
+
+function updateProgress(current, total) {
+  const pct = Math.round((current/total)*100);
+  document.getElementById('progress-bar').style.width = pct + '%';
+  document.getElementById('progress-text').textContent = `${current}/${total} videos analyzed (${pct}%)`;
+}
+
+// Initial data load
+function loadData() {
+  if (typeof BATCH_DATA !== 'undefined') {
+    IDEAS = BATCH_DATA;
+    renderAll();
+    updateProgress(IDEAS.length, 250);
+  }
+}
+
+// Load external data file
+const script = document.createElement('script');
+script.src = 'data.js';
+script.onload = loadData;
+document.head.appendChild(script);
+</script>
+</body>
+</html>
