@@ -4,518 +4,271 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Service Business Ideas - Research & Analysis</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #0a0a0f;
-  --card: #13131a;
-  --card-hover: #1a1a25;
-  --border: #2a2a3a;
-  --accent: #6c5ce7;
-  --accent-light: #a29bfe;
-  --green: #00b894;
-  --yellow: #fdcb6e;
-  --red: #e17055;
-  --orange: #f39c12;
-  --text: #e0e0e0;
-  --text-muted: #8a8a9a;
-  --text-bright: #ffffff;
+  --bg: #f8f9fa;
+  --card: #ffffff;
+  --card-hover: #f0f4ff;
+  --border: #e2e8f0;
+  --accent: #4f46e5;
+  --accent-light: #6366f1;
+  --green: #059669;
+  --yellow: #d97706;
+  --red: #dc2626;
+  --orange: #ea580c;
+  --text: #1e293b;
+  --text-muted: #64748b;
+  --text-bright: #0f172a;
+  --surface: #f1f5f9;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-}
-.container { max-width: 1400px; margin: 0 auto; padding: 20px; }
-header {
-  text-align: center;
-  padding: 40px 20px;
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 30px;
-}
-header h1 {
-  font-size: 2.4rem;
-  color: var(--text-bright);
-  margin-bottom: 10px;
-  font-weight: 800;
-}
-header p { color: var(--text-muted); font-size: 1.1rem; max-width: 700px; margin: 0 auto; }
-.stats-bar {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  margin: 25px 0;
-  flex-wrap: wrap;
-}
-.stat-box {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 15px 25px;
-  text-align: center;
-  min-width: 150px;
-}
-.stat-box .num {
-  font-size: 2rem;
-  font-weight: 800;
-  color: var(--accent-light);
-}
-.stat-box .label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+/* Header */
+header { padding: 30px 20px; border-bottom: 2px solid var(--border); margin-bottom: 20px; }
+header h1 { font-size: 1.8rem; color: var(--text-bright); font-weight: 800; }
+header p { color: var(--text-muted); font-size: 0.95rem; max-width: 700px; margin-top: 6px; }
+.stats-bar { display: flex; gap: 16px; margin-top: 16px; flex-wrap: wrap; }
+.stat-box { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 10px 18px; }
+.stat-box .num { font-size: 1.4rem; font-weight: 800; color: var(--accent); }
+.stat-box .label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
 
 /* Filters */
-.filters {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 25px;
-  flex-wrap: wrap;
-  align-items: center;
-  padding: 15px 20px;
-  background: var(--card);
-  border-radius: 12px;
-  border: 1px solid var(--border);
-}
-.filters label { color: var(--text-muted); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
-.filters select, .filters input {
-  background: var(--bg);
-  color: var(--text);
-  border: 1px solid var(--border);
-  padding: 8px 14px;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  outline: none;
-}
-.filters select:focus, .filters input:focus { border-color: var(--accent); }
-.filter-group { display: flex; flex-direction: column; gap: 4px; }
+.filters { display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; align-items: end; padding: 12px 16px; background: var(--card); border-radius: 8px; border: 1px solid var(--border); }
+.filter-group { display: flex; flex-direction: column; gap: 3px; }
+.filters label { color: var(--text-muted); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.filters select, .filters input { background: var(--surface); color: var(--text); border: 1px solid var(--border); padding: 6px 10px; border-radius: 6px; font-size: 0.85rem; }
 
-/* Cards */
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
-  gap: 20px;
-}
-.idea-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 24px;
-  transition: all 0.2s;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-.idea-card:hover { background: var(--card-hover); border-color: var(--accent); transform: translateY(-2px); }
-.idea-card .category-badge {
-  display: inline-block;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 12px;
-}
-.badge-website { background: #6c5ce720; color: #a29bfe; }
-.badge-voice { background: #00b89420; color: #55efc4; }
-.badge-chatbot { background: #0984e320; color: #74b9ff; }
-.badge-content { background: #e1705520; color: #fab1a0; }
-.badge-lead-gen { background: #fdcb6e20; color: #ffeaa7; }
-.badge-seo { background: #00cec920; color: #81ecec; }
-.badge-ads { background: #fd79a820; color: #f8a5c2; }
-.badge-automation { background: #a29bfe20; color: #dfe6e9; }
-.badge-reputation { background: #55efc420; color: #00b894; }
-.badge-email { background: #ff793f20; color: #ff793f; }
-.badge-saas { background: #e056f020; color: #e056f0; }
-.badge-niche { background: #f39c1220; color: #f1c40f; }
-.badge-ugc { background: #e84393 20; color: #fd79a8; }
-.badge-misc { background: #636e7220; color: #b2bec3; }
+/* Table Layout */
+.ideas-table { width: 100%; border-collapse: separate; border-spacing: 0; }
+.idea-row { background: var(--card); border: 1px solid var(--border); cursor: pointer; transition: all 0.15s; }
+.idea-row:hover { background: var(--card-hover); border-color: var(--accent); }
+.idea-row td { padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; font-size: 0.88rem; }
+.idea-row:first-child td { border-top: 1px solid var(--border); }
+.idea-row .title-cell { font-weight: 700; color: var(--text-bright); max-width: 320px; }
+.idea-row .title-cell .creator { font-weight: 400; color: var(--text-muted); font-size: 0.78rem; display: block; margin-top: 2px; }
+.idea-row .score-cell { font-weight: 800; font-size: 1rem; text-align: center; min-width: 55px; }
+.idea-row .cat-cell { min-width: 120px; }
+.idea-row .price-cell { min-width: 100px; font-weight: 600; }
+.idea-row .speed-cell { min-width: 80px; text-align: center; }
+.idea-row .proof-cell { min-width: 90px; text-align: center; }
 
-.proof-badge {
-  display: inline-block;
-  padding: 3px 8px;
-  border-radius: 4px;
-  font-size: 0.65rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-left: 8px;
-  vertical-align: middle;
-}
-.proof-verified { background: #00b89430; color: #00b894; border: 1px solid #00b89450; }
-.proof-partially-verified { background: #fdcb6e30; color: #fdcb6e; border: 1px solid #fdcb6e50; }
-.proof-unverified { background: #e1705530; color: #e17055; border: 1px solid #e1705550; }
-.proof-na { background: #636e7230; color: #b2bec3; border: 1px solid #636e7250; }
-.proof-note {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  background: var(--bg);
-  padding: 8px 12px;
-  border-radius: 6px;
-  margin-top: 8px;
-  border-left: 3px solid var(--border);
-  font-style: italic;
-}
-.idea-card h3 { font-size: 1.15rem; color: var(--text-bright); margin-bottom: 8px; font-weight: 700; }
-.idea-card .creator { color: var(--accent-light); font-size: 0.85rem; margin-bottom: 10px; }
-.idea-card .summary { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px; line-height: 1.5; }
-
-.metrics-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-bottom: 15px;
-}
-.metric {
-  text-align: center;
-  padding: 8px;
-  background: var(--bg);
-  border-radius: 8px;
-}
-.metric .value { font-size: 1.1rem; font-weight: 700; }
-.metric .mlabel { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+.cat-badge { display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 600; background: #eef2ff; color: #4f46e5; }
 .score-high { color: var(--green); }
 .score-mid { color: var(--yellow); }
 .score-low { color: var(--red); }
 
-.tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
-.tag {
-  font-size: 0.7rem;
-  padding: 3px 8px;
-  border-radius: 4px;
-  background: var(--bg);
-  color: var(--text-muted);
-  border: 1px solid var(--border);
-}
+.proof-badge { display: inline-block; padding: 2px 6px; border-radius: 3px; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; }
+.proof-verified { background: #dcfce7; color: #166534; }
+.proof-partially-verified { background: #fef9c3; color: #854d0e; }
+.proof-unverified { background: #fee2e2; color: #991b1b; }
+.proof-na { background: #f1f5f9; color: #64748b; }
 
-/* Expanded card */
-.idea-card .expanded-content {
-  display: none;
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px solid var(--border);
-}
-.idea-card.open .expanded-content { display: block; }
-.expanded-content h4 { color: var(--accent-light); font-size: 0.95rem; margin: 12px 0 6px; }
-.expanded-content p, .expanded-content li { font-size: 0.88rem; color: var(--text-muted); }
-.expanded-content ul { padding-left: 18px; }
-.expanded-content li { margin-bottom: 4px; }
-.transcript-preview {
-  background: var(--bg);
-  padding: 12px;
-  border-radius: 8px;
-  max-height: 200px;
-  overflow-y: auto;
-  font-size: 0.82rem;
-  color: var(--text-muted);
-  margin-top: 8px;
-  white-space: pre-wrap;
-  border: 1px solid var(--border);
-}
-.video-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--accent-light);
-  text-decoration: none;
-  font-size: 0.85rem;
-  margin-top: 10px;
-  padding: 6px 12px;
-  background: var(--accent)15;
-  border-radius: 6px;
-}
-.video-link:hover { background: var(--accent)30; }
+.speed-badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 0.72rem; font-weight: 600; }
+.speed-fast { background: #dcfce7; color: #166534; }
+.speed-medium { background: #fef9c3; color: #854d0e; }
+.speed-slow { background: #fee2e2; color: #991b1b; }
 
-.offer-screenshot {
-  margin-top: 12px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  max-width: 100%;
-}
-.offer-description {
-  background: var(--bg);
-  padding: 12px;
-  border-radius: 8px;
-  margin-top: 8px;
-  font-size: 0.85rem;
-  border-left: 3px solid var(--accent);
-}
+/* Expanded Detail Panel */
+.detail-panel { display: none; background: var(--surface); border: 1px solid var(--border); border-top: none; }
+.detail-panel.open { display: table-row; }
+.detail-panel td { padding: 0; }
+.detail-inner { padding: 20px 24px; }
+.detail-inner h4 { color: var(--accent); font-size: 0.85rem; margin: 16px 0 6px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+.detail-inner h4:first-child { margin-top: 0; }
+.detail-inner p, .detail-inner li { font-size: 0.85rem; color: var(--text); line-height: 1.6; }
+.detail-inner ul { padding-left: 18px; margin: 4px 0; }
+.detail-inner li { margin-bottom: 3px; }
 
-/* Speed indicator */
-.speed-indicator {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px 10px;
-  border-radius: 12px;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-.speed-fast { background: #00b89420; color: #00b894; }
-.speed-medium { background: #fdcb6e20; color: #fdcb6e; }
-.speed-slow { background: #e1705520; color: #e17055; }
+.detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media (max-width: 768px) { .detail-grid { grid-template-columns: 1fr; } }
 
-/* Loading */
-.loading-state {
-  text-align: center;
-  padding: 60px;
-  color: var(--text-muted);
-}
-.loading-state .spinner {
-  width: 40px; height: 40px;
-  border: 3px solid var(--border);
-  border-top-color: var(--accent);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin: 0 auto 15px;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
+.detail-box { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 14px; }
+.detail-box h4 { margin-top: 0 !important; }
 
-/* Progress bar */
-.progress-section {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 25px;
-}
-.progress-bar-container {
-  height: 8px;
-  background: var(--bg);
-  border-radius: 4px;
-  overflow: hidden;
-  margin: 10px 0;
-}
-.progress-bar-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--accent), var(--green));
-  border-radius: 4px;
-  transition: width 0.5s;
-}
-.progress-text { font-size: 0.85rem; color: var(--text-muted); }
+.proof-note-box { background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 10px 14px; font-size: 0.82rem; color: #92400e; margin: 8px 0; }
+.proof-note-box.verified { background: #f0fdf4; border-color: #86efac; color: #166534; }
+.proof-note-box.unverified { background: #fef2f2; border-color: #fecaca; color: #991b1b; }
+
+.cole-gordon-box { background: #f5f3ff; border: 1px solid #ddd6fe; border-radius: 8px; padding: 14px; margin: 8px 0; }
+.cole-gordon-box h4 { color: #7c3aed !important; }
+.cole-gordon-box .framework-label { font-weight: 700; color: #6d28d9; font-size: 0.78rem; text-transform: uppercase; display: block; margin-top: 8px; }
+
+.pitch-box { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 14px; margin: 8px 0; }
+.pitch-box h4 { color: #1d4ed8 !important; }
+.pitch-script { background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 10px 14px; font-size: 0.83rem; font-style: italic; color: var(--text); margin: 6px 0; border-left: 3px solid #3b82f6; }
+
+.platform-tags { display: flex; gap: 6px; flex-wrap: wrap; margin: 6px 0; }
+.platform-tag { font-size: 0.72rem; padding: 3px 8px; border-radius: 4px; background: #e0e7ff; color: #3730a3; font-weight: 600; }
+
+.video-link { display: inline-flex; align-items: center; gap: 4px; color: var(--accent); text-decoration: none; font-size: 0.82rem; padding: 4px 10px; background: #eef2ff; border-radius: 4px; margin-top: 8px; }
+.video-link:hover { background: #e0e7ff; }
+
+.transcript-preview { background: var(--card); padding: 10px; border-radius: 6px; max-height: 150px; overflow-y: auto; font-size: 0.8rem; color: var(--text-muted); margin-top: 6px; border: 1px solid var(--border); white-space: pre-wrap; }
+
+.metrics-mini { display: flex; gap: 12px; margin: 8px 0; flex-wrap: wrap; }
+.metric-mini { text-align: center; padding: 6px 10px; background: var(--surface); border-radius: 6px; border: 1px solid var(--border); }
+.metric-mini .val { font-size: 0.95rem; font-weight: 700; }
+.metric-mini .lbl { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; }
+
+/* Table header */
+.table-header { display: flex; padding: 8px 14px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px 8px 0 0; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.5px; }
+.table-header > div { padding: 0 4px; }
+.th-title { flex: 3; }
+.th-score { width: 55px; text-align: center; }
+.th-cat { width: 120px; }
+.th-price { width: 110px; }
+.th-speed { width: 80px; text-align: center; }
+.th-proof { width: 100px; text-align: center; }
 
 /* Responsive */
-@media (max-width: 768px) {
-  .cards-grid { grid-template-columns: 1fr; }
-  .filters { flex-direction: column; }
-  .stats-bar { flex-direction: column; align-items: center; }
-  header h1 { font-size: 1.6rem; }
-  .metrics-row { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 900px) {
+  .ideas-table { display: block; }
+  .idea-row { display: block; margin-bottom: 8px; border-radius: 8px; }
+  .idea-row td { display: block; padding: 6px 12px; border: none; }
+  .table-header { display: none; }
 }
-
-/* No results */
-.no-results {
-  text-align: center;
-  padding: 60px 20px;
-  color: var(--text-muted);
-}
-.no-results h3 { color: var(--text); margin-bottom: 10px; }
+.no-results { text-align: center; padding: 40px; color: var(--text-muted); }
 </style>
 </head>
 <body>
 <div class="container">
   <header>
     <h1>AI Service Business Ideas</h1>
-    <p>Deep research into 250+ YouTube videos analyzing AI-automated business services you can build and sell for $500-$5,000 per client. Each idea scored, ranked, and analyzed for profitability.</p>
+    <p>Deep research into AI-automated business services. Each idea proof-verified, scored, and analyzed with complete execution details including platforms, pitch scripts, and Cole Gordon offer frameworks.</p>
     <div class="stats-bar">
-      <div class="stat-box"><div class="num" id="total-videos">0</div><div class="label">Videos Analyzed</div></div>
-      <div class="stat-box"><div class="num" id="total-ideas">0</div><div class="label">Business Ideas</div></div>
+      <div class="stat-box"><div class="num" id="total-ideas">0</div><div class="label">Ideas Analyzed</div></div>
+      <div class="stat-box"><div class="num" id="verified-count">0</div><div class="label">Verified</div></div>
       <div class="stat-box"><div class="num" id="total-categories">0</div><div class="label">Categories</div></div>
       <div class="stat-box"><div class="num" id="avg-score">0</div><div class="label">Avg Score</div></div>
     </div>
   </header>
 
-  <div class="progress-section">
-    <div style="display:flex;justify-content:space-between;align-items:center;">
-      <span style="font-weight:700;color:var(--text-bright);">Research Progress</span>
-      <span class="progress-text" id="progress-text">Loading...</span>
-    </div>
-    <div class="progress-bar-container">
-      <div class="progress-bar-fill" id="progress-bar" style="width:0%"></div>
-    </div>
-  </div>
-
   <div class="filters">
-    <div class="filter-group">
-      <label>Category</label>
-      <select id="filter-category">
-        <option value="all">All Categories</option>
-      </select>
-    </div>
-    <div class="filter-group">
-      <label>Min Score</label>
-      <select id="filter-score">
-        <option value="0">Any Score</option>
-        <option value="7">7+</option>
-        <option value="8">8+</option>
-        <option value="9">9+</option>
-      </select>
-    </div>
-    <div class="filter-group">
-      <label>Price Range</label>
-      <select id="filter-price">
-        <option value="all">Any Price</option>
-        <option value="low">$100-$500</option>
-        <option value="mid">$500-$2,000</option>
-        <option value="high">$2,000-$5,000</option>
-        <option value="premium">$5,000+</option>
-      </select>
-    </div>
-    <div class="filter-group">
-      <label>Speed to $5K</label>
-      <select id="filter-speed">
-        <option value="all">Any Speed</option>
-        <option value="hours">Hours</option>
-        <option value="days">Days</option>
-        <option value="weeks">Weeks</option>
-      </select>
-    </div>
-    <div class="filter-group">
-      <label>Sort By</label>
-      <select id="sort-by">
-        <option value="score">Overall Score</option>
-        <option value="speed">Speed to $5K</option>
-        <option value="price">Price (High to Low)</option>
-        <option value="ease">Ease of Delivery</option>
-        <option value="demand">Market Demand</option>
-      </select>
-    </div>
-    <div class="filter-group">
-      <label>Proof Level</label>
-      <select id="filter-proof">
-        <option value="all">Any Proof</option>
-        <option value="verified">Verified Only</option>
-        <option value="partially-verified">Partially Verified+</option>
-      </select>
-    </div>
-    <div class="filter-group">
-      <label>Search</label>
-      <input type="text" id="search-input" placeholder="Search ideas..." style="width:200px;">
-    </div>
+    <div class="filter-group"><label>Category</label><select id="filter-category"><option value="all">All</option></select></div>
+    <div class="filter-group"><label>Min Score</label><select id="filter-score"><option value="0">Any</option><option value="7">7+</option><option value="8">8+</option><option value="9">9+</option></select></div>
+    <div class="filter-group"><label>Price</label><select id="filter-price"><option value="all">Any</option><option value="low">$100-500</option><option value="mid">$500-2K</option><option value="high">$2K-5K</option><option value="premium">$5K+</option></select></div>
+    <div class="filter-group"><label>Speed</label><select id="filter-speed"><option value="all">Any</option><option value="hours">Hours</option><option value="days">Days</option><option value="weeks">Weeks</option></select></div>
+    <div class="filter-group"><label>Proof</label><select id="filter-proof"><option value="all">Any</option><option value="verified">Verified</option><option value="partially-verified">Partial+</option></select></div>
+    <div class="filter-group"><label>Sort</label><select id="sort-by"><option value="score">Score</option><option value="speed">Speed</option><option value="price">Price</option><option value="ease">Ease</option></select></div>
+    <div class="filter-group"><label>Search</label><input type="text" id="search-input" placeholder="Search..." style="width:160px;"></div>
   </div>
 
-  <div class="cards-grid" id="cards-container">
-    <div class="loading-state">
-      <div class="spinner"></div>
-      <p>Loading research data...</p>
-    </div>
+  <div class="table-header">
+    <div class="th-title">Idea</div>
+    <div class="th-score">Score</div>
+    <div class="th-cat">Category</div>
+    <div class="th-price">Price</div>
+    <div class="th-speed">Speed</div>
+    <div class="th-proof">Proof</div>
   </div>
+
+  <div id="ideas-container"></div>
 </div>
 
 <script>
-// Data store - ideas will be added in batches
 let IDEAS = [];
 
-function getScoreClass(score) {
-  if (score >= 8) return 'score-high';
-  if (score >= 6) return 'score-mid';
-  return 'score-low';
-}
+function sc(s) { return s >= 8 ? 'score-high' : s >= 6 ? 'score-mid' : 'score-low'; }
+function spd(s) { return ['minutes','hours'].includes(s) ? 'speed-fast' : ['days','1-2 days'].includes(s) ? 'speed-medium' : 'speed-slow'; }
+function pc(p) { return {'verified':'proof-verified','partially-verified':'proof-partially-verified','unverified':'proof-unverified'}[p] || 'proof-na'; }
+function pl(p) { return {'verified':'Verified','partially-verified':'Partial','unverified':'Unverified','n/a':'N/A'}[p] || '?'; }
+function pnc(p) { return p === 'verified' ? 'verified' : p === 'unverified' ? 'unverified' : ''; }
 
-function getSpeedClass(speed) {
-  if (['minutes','hours'].includes(speed)) return 'speed-fast';
-  if (['days','1-2 days'].includes(speed)) return 'speed-medium';
-  return 'speed-slow';
-}
+function renderRow(idea, idx) {
+  let detail = '';
 
-function getBadgeClass(cat) {
-  const map = {
-    'AI Website Builder': 'badge-website',
-    'AI Voice Agent': 'badge-voice',
-    'AI Chatbot': 'badge-chatbot',
-    'AI Content Agency': 'badge-content',
-    'AI Lead Generation': 'badge-lead-gen',
-    'AI SEO Service': 'badge-seo',
-    'AI Ad Creative': 'badge-ads',
-    'AI Workflow Automation': 'badge-automation',
-    'AI Reputation Management': 'badge-reputation',
-    'AI Email Marketing': 'badge-email',
-    'AI White Label SaaS': 'badge-saas',
-    'AI Niche Service': 'badge-niche',
-    'AI UGC/Video': 'badge-ugc',
-  };
-  return map[cat] || 'badge-misc';
-}
-
-function renderCard(idea, idx) {
-  const scoreClass = getScoreClass(idea.overallScore);
-  const speedClass = getSpeedClass(idea.speedToFirst5k);
-  const badgeClass = getBadgeClass(idea.category);
-
-  const proofClass = {'verified':'proof-verified','partially-verified':'proof-partially-verified','unverified':'proof-unverified','n/a':'proof-na'}[idea.proofLevel] || 'proof-na';
-  const proofLabel = {'verified':'Verified','partially-verified':'Partially Verified','unverified':'Unverified','n/a':'N/A'}[idea.proofLevel] || 'Unknown';
-
-  let expandedHTML = '';
+  // Proof note
   if (idea.proofNote) {
-    expandedHTML += `<h4>Proof & Verification</h4><div class="proof-note">${idea.proofNote}</div>`;
+    detail += `<div class="proof-note-box ${pnc(idea.proofLevel)}"><strong>Evidence:</strong> ${idea.proofNote}</div>`;
   }
-  if (idea.businessAnalysis) {
-    expandedHTML += `<h4>Business Model</h4><p>${idea.businessAnalysis}</p>`;
-  }
+
+  detail += '<div class="detail-grid">';
+
+  // Left column: Business Model + How to Build
+  detail += '<div>';
+  if (idea.businessAnalysis) detail += `<div class="detail-box"><h4>Business Model & How to Execute</h4><p>${idea.businessAnalysis}</p></div>`;
+  if (idea.automationPlan) detail += `<div class="detail-box"><h4>Build Plan (Step by Step)</h4><p>${idea.automationPlan}</p></div>`;
   if (idea.toolsNeeded && idea.toolsNeeded.length) {
-    expandedHTML += `<h4>Tools & Stack Needed</h4><ul>${idea.toolsNeeded.map(t => `<li>${t}</li>`).join('')}</ul>`;
+    detail += `<div class="detail-box"><h4>Platforms & Tools to Build With</h4><div class="platform-tags">${idea.toolsNeeded.map(t => `<span class="platform-tag">${t}</span>`).join('')}</div></div>`;
   }
-  if (idea.automationPlan) {
-    expandedHTML += `<h4>Automation Plan</h4><p>${idea.automationPlan}</p>`;
-  }
-  if (idea.unitEconomics) {
-    expandedHTML += `<h4>Unit Economics</h4><p>${idea.unitEconomics}</p>`;
-  }
+  detail += '</div>';
+
+  // Right column: Audience + Pitch + Economics
+  detail += '<div>';
   if (idea.audienceAcquisition) {
-    expandedHTML += `<h4>How to Find Clients</h4><p>${idea.audienceAcquisition}</p>`;
+    detail += `<div class="pitch-box"><h4>How to Find Clients & Pitch for Easy Yes</h4><p>${idea.audienceAcquisition}</p></div>`;
   }
   if (idea.whyValuable) {
-    expandedHTML += `<h4>Why Businesses Pay</h4><p>${idea.whyValuable}</p>`;
+    detail += `<div class="pitch-box"><h4>Why They Pay (Value Proposition)</h4><p>${idea.whyValuable}</p></div>`;
   }
-  if (idea.offerDescription) {
-    expandedHTML += `<h4>Creator's Offer</h4><div class="offer-description">${idea.offerDescription}</div>`;
-  }
-  if (idea.offerScreenshot) {
-    expandedHTML += `<img src="${idea.offerScreenshot}" class="offer-screenshot" alt="Offer screenshot">`;
-  }
-  if (idea.transcriptPreview) {
-    expandedHTML += `<h4>Transcript Excerpt</h4><div class="transcript-preview">${idea.transcriptPreview}</div>`;
-  }
-  if (idea.videoUrl) {
-    expandedHTML += `<a href="${idea.videoUrl}" target="_blank" class="video-link">Watch Video</a>`;
-  }
-  if (idea.creatorSite) {
-    expandedHTML += ` <a href="${idea.creatorSite}" target="_blank" class="video-link">Creator's Site</a>`;
-  }
+  if (idea.unitEconomics) detail += `<div class="detail-box"><h4>Unit Economics</h4><p>${idea.unitEconomics}</p></div>`;
+  detail += '</div>';
+  detail += '</div>'; // end grid
+
+  // Cole Gordon Framework
+  detail += `<div class="cole-gordon-box">
+    <h4>Cole Gordon Offer Analysis</h4>
+    <span class="framework-label">3S Formula (Specific Problem + Specific Person + Specific Way)</span>
+    <p>${idea.summary}</p>
+    <span class="framework-label">Desire Type</span>
+    <p>${(idea.tags||[]).some(t => t.includes('b2c') || t.includes('human-desire')) ?
+      'Below Average → Average (Pain/Urgency) — High urgency, they NEED this fixed' :
+      (idea.priceNumeric || 0) > 3000 ?
+      'Average → Excellence (Aspiration) — They want to level up, not fix a crisis' :
+      'Below Average → Average (Pain) — Business is losing money/time they can measure'}</p>
+    <span class="framework-label">Golden Opportunity Segment</span>
+    <p>${idea.category.includes('Niche') || (idea.tags||[]).includes('blue-ocean') ?
+      'Target: Wealthy people who feel below average in this area. High urgency + high ability to pay.' :
+      'Target: Business owners spending money on the problem already (ads, staff, tools) but getting poor results.'}</p>
+    <span class="framework-label">Market Commoditization Risk</span>
+    <p>${idea.proofLevel === 'verified' && (idea.tags||[]).includes('niche') ?
+      'LOW — Vertical specialization creates differentiation. Not easily commoditized.' :
+      (idea.tags||[]).some(t => ['voice-agent','chatbot','receptionist'].includes(t)) ?
+      'HIGH — Crowded space. Differentiate through vertical focus, outcomes, and proof.' :
+      'MEDIUM — Growing market. First-mover advantage in specific niches still available.'}</p>
+  </div>`;
+
+  // Metrics
+  detail += `<div class="metrics-mini">
+    <div class="metric-mini"><div class="val ${sc(idea.easeOfDelivery)}">${idea.easeOfDelivery}/10</div><div class="lbl">Ease</div></div>
+    <div class="metric-mini"><div class="val ${sc(idea.marketDemand)}">${idea.marketDemand}/10</div><div class="lbl">Demand</div></div>
+    <div class="metric-mini"><div class="val ${sc(idea.aiAutomation)}">${idea.aiAutomation}/10</div><div class="lbl">AI %</div></div>
+    <div class="metric-mini"><div class="val ${sc(idea.profitability)}">${idea.profitability}/10</div><div class="lbl">Profit</div></div>
+  </div>`;
+
+  if (idea.transcriptPreview) detail += `<h4>From the Research</h4><div class="transcript-preview">${idea.transcriptPreview}</div>`;
+  if (idea.offerDescription) detail += `<div style="margin-top:8px;padding:8px 12px;background:#f0fdf4;border-radius:6px;font-size:0.82rem;border:1px solid #bbf7d0;"><strong>Creator's Actual Offer:</strong> ${idea.offerDescription}</div>`;
+  if (idea.videoUrl) detail += `<a href="${idea.videoUrl}" target="_blank" class="video-link">Watch Source Video</a>`;
+  if (idea.creatorSite) detail += ` <a href="${idea.creatorSite}" target="_blank" class="video-link">Creator Site</a>`;
 
   return `
-  <div class="idea-card" data-idx="${idx}" data-category="${idea.category}" data-score="${idea.overallScore}" data-speed="${idea.speedToFirst5k}" data-price="${idea.priceRange}" onclick="toggleCard(this)">
-    <span class="category-badge ${badgeClass}">${idea.category}</span>
-    <span class="speed-indicator ${speedClass}" style="float:right;">${idea.speedToFirst5k} to $5K</span>
-    <h3>${idea.title} <span class="proof-badge ${proofClass}">${proofLabel}</span></h3>
-    <div class="creator">${idea.creator} ${idea.videoViews ? '&bull; ' + idea.videoViews + ' views' : ''}</div>
-    <div class="summary">${idea.summary}</div>
-    <div class="metrics-row">
-      <div class="metric"><div class="value ${scoreClass}">${idea.overallScore}/10</div><div class="mlabel">Score</div></div>
-      <div class="metric"><div class="value">${idea.pricePoint}</div><div class="mlabel">Price Point</div></div>
-      <div class="metric"><div class="value ${getScoreClass(idea.easeOfDelivery)}">${idea.easeOfDelivery}/10</div><div class="mlabel">Ease</div></div>
-    </div>
-    <div class="metrics-row">
-      <div class="metric"><div class="value ${getScoreClass(idea.marketDemand)}">${idea.marketDemand}/10</div><div class="mlabel">Demand</div></div>
-      <div class="metric"><div class="value ${getScoreClass(idea.aiAutomation)}">${idea.aiAutomation}/10</div><div class="mlabel">AI %</div></div>
-      <div class="metric"><div class="value ${getScoreClass(idea.profitability)}">${idea.profitability}/10</div><div class="mlabel">Profit</div></div>
-    </div>
-    <div class="tags">
-      ${(idea.tags||[]).map(t => `<span class="tag">${t}</span>`).join('')}
-    </div>
-    <div class="expanded-content">${expandedHTML}</div>
-  </div>`;
+  <div class="idea-row" onclick="toggle(this)" data-idx="${idx}">
+    <td class="title-cell">${idea.title}<span class="creator">${idea.creator}</span></td>
+    <td class="score-cell ${sc(idea.overallScore)}">${idea.overallScore}</td>
+    <td class="cat-cell"><span class="cat-badge">${idea.category}</span></td>
+    <td class="price-cell">${idea.pricePoint}</td>
+    <td class="speed-cell"><span class="speed-badge ${spd(idea.speedToFirst5k)}">${idea.speedToFirst5k}</span></td>
+    <td class="proof-cell"><span class="proof-badge ${pc(idea.proofLevel)}">${pl(idea.proofLevel)}</span></td>
+  </div>
+  <div class="detail-panel" id="detail-${idx}"><td colspan="6"><div class="detail-inner">${detail}</div></td></div>`;
 }
 
-function toggleCard(el) {
-  el.classList.toggle('open');
+function toggle(el) {
+  const idx = el.dataset.idx;
+  const panel = document.getElementById('detail-' + idx);
+  panel.classList.toggle('open');
 }
 
 function renderAll() {
-  const container = document.getElementById('cards-container');
+  const container = document.getElementById('ideas-container');
   const catFilter = document.getElementById('filter-category').value;
   const scoreFilter = parseInt(document.getElementById('filter-score').value);
   const priceFilter = document.getElementById('filter-price').value;
   const speedFilter = document.getElementById('filter-speed').value;
+  const proofFilter = document.getElementById('filter-proof').value;
   const sortBy = document.getElementById('sort-by').value;
   const search = document.getElementById('search-input').value.toLowerCase();
 
@@ -524,7 +277,6 @@ function renderAll() {
     if (idea.overallScore < scoreFilter) return false;
     if (priceFilter !== 'all' && idea.priceRange !== priceFilter) return false;
     if (speedFilter !== 'all' && !idea.speedToFirst5k.toLowerCase().includes(speedFilter)) return false;
-    const proofFilter = document.getElementById('filter-proof').value;
     if (proofFilter === 'verified' && idea.proofLevel !== 'verified') return false;
     if (proofFilter === 'partially-verified' && idea.proofLevel === 'unverified') return false;
     if (search && !JSON.stringify(idea).toLowerCase().includes(search)) return false;
@@ -533,58 +285,38 @@ function renderAll() {
 
   const sortFn = {
     score: (a, b) => b.overallScore - a.overallScore,
-    speed: (a, b) => { const order = {'minutes':0,'hours':1,'days':2,'1-2 days':2,'weeks':3,'months':4}; return (order[a.speedToFirst5k]||5) - (order[b.speedToFirst5k]||5); },
+    speed: (a, b) => { const o = {'minutes':0,'hours':1,'days':2,'1-2 days':2,'weeks':3,'months':4}; return (o[a.speedToFirst5k]||5) - (o[b.speedToFirst5k]||5); },
     price: (a, b) => (b.priceNumeric||0) - (a.priceNumeric||0),
     ease: (a, b) => b.easeOfDelivery - a.easeOfDelivery,
-    demand: (a, b) => b.marketDemand - a.marketDemand,
   };
   filtered.sort(sortFn[sortBy] || sortFn.score);
 
-  if (filtered.length === 0) {
-    container.innerHTML = '<div class="no-results"><h3>No matching ideas</h3><p>Try adjusting your filters</p></div>';
+  if (!filtered.length) {
+    container.innerHTML = '<div class="no-results"><h3>No matching ideas</h3><p>Adjust filters</p></div>';
   } else {
-    container.innerHTML = filtered.map((idea, i) => renderCard(idea, i)).join('');
+    container.innerHTML = '<table class="ideas-table"><tbody>' + filtered.map((idea, i) => renderRow(idea, i)).join('') + '</tbody></table>';
   }
 
-  // Update stats
-  const categories = [...new Set(IDEAS.map(i => i.category))];
-  document.getElementById('total-videos').textContent = IDEAS.reduce((acc, i) => acc + (i.videosSources || 1), 0);
+  const cats = [...new Set(IDEAS.map(i => i.category))];
   document.getElementById('total-ideas').textContent = IDEAS.length;
-  document.getElementById('total-categories').textContent = categories.length;
+  document.getElementById('verified-count').textContent = IDEAS.filter(i => i.proofLevel === 'verified').length;
+  document.getElementById('total-categories').textContent = cats.length;
   document.getElementById('avg-score').textContent = IDEAS.length ? (IDEAS.reduce((a,b) => a + b.overallScore, 0) / IDEAS.length).toFixed(1) : '0';
 
-  // Populate category filter
-  const catSelect = document.getElementById('filter-category');
-  const currentCat = catSelect.value;
-  catSelect.innerHTML = '<option value="all">All Categories</option>' + categories.map(c => `<option value="${c}">${c}</option>`).join('');
-  catSelect.value = currentCat;
+  const catSel = document.getElementById('filter-category');
+  const cur = catSel.value;
+  catSel.innerHTML = '<option value="all">All</option>' + cats.sort().map(c => `<option value="${c}">${c}</option>`).join('');
+  catSel.value = cur;
 }
 
-// Event listeners
 ['filter-category','filter-score','filter-price','filter-speed','sort-by','filter-proof'].forEach(id => {
   document.getElementById(id).addEventListener('change', renderAll);
 });
 document.getElementById('search-input').addEventListener('input', renderAll);
 
-function updateProgress(current, total) {
-  const pct = Math.round((current/total)*100);
-  document.getElementById('progress-bar').style.width = pct + '%';
-  document.getElementById('progress-text').textContent = `${current}/${total} videos analyzed (${pct}%)`;
-}
-
-// Initial data load
-function loadData() {
-  if (typeof BATCH_DATA !== 'undefined') {
-    IDEAS = BATCH_DATA;
-    renderAll();
-    updateProgress(IDEAS.length, IDEAS.length);
-  }
-}
-
-// Load external data file
 const script = document.createElement('script');
 script.src = 'data.js';
-script.onload = loadData;
+script.onload = () => { if (typeof BATCH_DATA !== 'undefined') { IDEAS = BATCH_DATA; renderAll(); } };
 document.head.appendChild(script);
 </script>
 </body>
